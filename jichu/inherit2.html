@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+	function inherit(p) {
+		if (p == null) {
+			throw TypeError();
+		}
+		if (Object.create) {
+			return Object.create(p);
+		}
+		var t = typeof p;
+		if (t != "object" && t != "function") {
+			throw TypeError();
+		}
+		function f() {
+
+		};
+		f.pototype = p;
+		return new f();
+	}
+
+	var o = {};// o 从Object.prototype继承对象方法
+	o.x = 1;//给o定义一个属性x
+	var p = this.inherit(o);//p继承o和Object.prototype方法
+	p.y = 2;
+	var q = this.inherit(p);//q继承p,o和Object.prototype方法
+	q.z = 3;
+	var s = q.toString();//toString()继承Object.prototype
+	var result = q.x + q.y;
+	console.log(result);
+	debugger;
+
+	</script>
+</head>
+<body>
+演示继承2
+</body>
+</html>
