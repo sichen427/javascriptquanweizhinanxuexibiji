@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+	function inherit(p) {
+		if (p == null) {
+			throw TypeError();
+		}
+		if (Object.create) {
+			return Object.create(p);
+		}
+		var t = typeof p;
+		if (t != "object" && t != "function") {
+			throw TypeError();
+		}
+		function f() {
+
+		};
+		f.pototype = p;
+		return new f();
+	}
+
+	//定义一个父类father,有fName和makeMoney方法
+	var father = {
+		fName:"father ",
+		makeMoney:function () {
+			alert(this.fName + "make many money!");
+		}
+	};
+
+	//构造一个father的子类sun,sun继承father的属性和方法，可以调用makeMoney
+	var sun = inherit(father);
+	sun.fName = "sun ";
+	sun.makeMoney();
+	father.makeMoney();
+
+	</script>
+</head>
+<body>
+演示javascript对象的继承
+使用pototype方法来继承。
+</body>
+</html>
