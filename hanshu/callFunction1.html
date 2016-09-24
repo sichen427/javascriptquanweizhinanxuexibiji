@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		//定义一个对象
+		var o = {
+			m:function () {
+				var self = this;
+				console.log(self === this);
+
+				function f() {
+					console.log(this);//输出全局window对象
+					console.log(self === o);
+				}
+				f();//调用f方法
+			},
+			name:"myFnc"
+		};
+		o.m();
+	</script>
+</head>
+<body>
+函数的调用
+</body>
+</html>
