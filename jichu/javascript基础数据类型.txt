@@ -3,3 +3,7 @@ string
 boolean
 null
 undefined
+object（对象类型）
+  函数
+  Array
+  Date
