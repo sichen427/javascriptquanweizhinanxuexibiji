@@ -3,18 +3,27 @@
 <head>
 	<title></title>
 	<script type="text/javascript">
-		//定义一个Class1的全局函数
-		function Class1(){
+		//定义一个Class1的全局函数,定义一个参数par1
+		function Class1(par1){
+
 			//this指的是全局变量window
 		    this.showTxt = function(){
 		    	alert(this.name);
 		    }
 		}
+		var class1 = new Class1();
+		//class1的name为undefined，所以输出的结果也为undefined
+		class1.showTxt();
+
+		var paramIntoCallObj = {};
+		paramIntoCallObj.pro1 = "值1";
+
 		//定义对象obj
 		var obj = new Object();
 		obj.name="test1";
+		obj.sex = "male";
 		//Class1中本来的this指的是全局变量window,因为使用了call方法，将Class1内部的对象上下文从初始的(window)变成了，传进去的参数ob,所以这时候Class1内部的this就是obj了。
-		Class1.call(obj);
+		Class1.call(obj,paramIntoCallObj);//把paramIntoCallObj作为参数传递进去,Class1中可以通过par1拿到
 		//obj中本来没有showTxt参数，但是因为调用了call所以就有了
 		obj.showTxt();//test1
 		alert(obj.showTxt);//function(){alert(this.name)}
