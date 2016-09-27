@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+	//下面开始是自运行函数
+	(function () {
+		var lion = lion || {};
+		lion.sayH = function() {
+			alert('h');
+		}
+		window.lion = lion;
+	}());
+	//上面开始是自运行函数
+
+	lion.sayH();
+	</script>
+</head>
+<body>
+自执行函数
+(function () { /* code */ } ());或
+(function () { /* code */ })();
+</body>
+</html>
